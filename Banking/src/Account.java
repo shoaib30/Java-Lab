@@ -5,24 +5,26 @@ public class Account {
 	private String name;
 	private double balance;
 	Scanner inp;
-	public static Account ACS[];
-	public static int NumberOfAccounts;
+	public static Account ACS[] = new Account[100];
+	public static int NumberOfAccounts = 0;
 	
 	public Account()	{
 		accountNumber = 0;
 		name = "";
 		balance = 0.0;
 		inp = new Scanner(System.in);
-		NumberOfAccounts = 0;
 	}
-	public void getInformation()	{
+	public boolean getInformation()	{
 		System.out.print("Enter Name: ");
 		this.name = inp.next();
 		System.out.print("Enter Account Number: ");
 		this.accountNumber = inp.nextInt();
+		if(SearchAccountNumber(accountNumber) != null)
+			return false;
 		System.out.print("Enter the Starting balance: ");
 		this.balance = inp.nextDouble();
 		System.out.println("Account Added\n");
+		return true;
 	}
 	public void showDetails()	{
 		System.out.println("Account Number: " + accountNumber);
@@ -76,11 +78,14 @@ public class Account {
 	}
 	public static Account SearchAccountNumber(int AccNum)	{
 		for(Account A: ACS)	{
-			if(A.accountNumber == AccNum)	{
+			if(A != null && A.accountNumber == AccNum)	{
 				return A;
 			}
 		}
 		return null;
+	}
+	public void welcomeMessage()	{
+		System.out.println("Welcome " +this.name);
 	}
 	public void finalize()	{
 		inp.close();

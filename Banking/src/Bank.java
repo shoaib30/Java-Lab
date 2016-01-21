@@ -8,27 +8,33 @@ public class Bank extends Account{
 		Account temp = null;
 		int ch;
 		while (true)	{
-			System.out.println("1. Add New Account\n2. Existing Account\n3. Exit");
+			System.out.println("\n\n1. Add New Account\n2. Existing Account\n3. Exit");
 			System.out.print("Enter Choice: ");
 			ch = inp.nextInt();
 			switch(ch)	{
 			case 1:
+				System.out.println("\n\nEnter the following details");
 				temp = new Account();
-				temp.getInformation();
+				if(!temp.getInformation())	{
+					System.out.println("Account number already exists");
+					break;
+				}
 				ACS[NumberOfAccounts] = temp;
 				NumberOfAccounts++;
 				break;
 			case 2:
-				System.out.println("Enter the Account Number: ");
+				System.out.print("\n\nEnter the Account Number: ");
 				int AccNum = inp.nextInt();
-				Account currentAccount = SearchAccountNumber(AccNum);
+				Account currentAccount = new Account();
+				currentAccount = SearchAccountNumber(AccNum);
 				if(currentAccount == null)	{
 					System.out.println("Account Not Found");
 					break;
 				}
+				currentAccount.welcomeMessage();
 				outside:
 				while(true)	{
-					System.out.println("1.Deposit\n2.Withdraw\n3.Transfer\n4.Display Details\n5.Return to main menu");
+					System.out.println("\n\n1.Deposit\n2.Withdraw\n3.Transfer\n4.Display Details\n5.Return to main menu");
 					int chs = inp.nextInt();
 					boolean status = false;
 					switch(chs)	{
@@ -39,20 +45,25 @@ public class Bank extends Account{
 						status = currentAccount.withdraw();
 						break;
 					case 3:
-						System.out.println("Enter Account number to transfer to: ");
+						System.out.print("\nEnter Account number to transfer to: ");
 						int transferAccount = inp.nextInt();
 						Account transferAcc = SearchAccountNumber(transferAccount);
 						if(transferAcc == null)	{
 							System.out.println("Account Not Found");
 							break;
 						}
-						transferAcc.transferTo(currentAccount.transferFrom());
+						status = transferAcc.transferTo(currentAccount.transferFrom());
+						break;
 					case 4:
+						currentAccount.showDetails();
+						status = true;
+						break;
+					case 5:
 						break outside;
 					default:
 						System.out.println("Invalid Choice");
 					}
-					if(status)
+					if(status && chs <= 3)
 						System.out.println("Transaction Successful");
 					else
 						System.out.println("Transaction Failure");
