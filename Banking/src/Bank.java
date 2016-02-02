@@ -44,6 +44,10 @@ public class Bank extends Account{
 					System.out.println("Account Not Found");
 					break;
 				}
+				if(transferAcc == currentAccount) 	{
+					System.out.println("Can not transfer to your own account");
+					break;
+				}
 				status = transferAcc.transferTo(currentAccount.transferFrom());
 				break;
 			case 4:
