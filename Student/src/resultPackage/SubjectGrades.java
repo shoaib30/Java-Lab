@@ -10,14 +10,18 @@ public class SubjectGrades extends RegisterStudent{
 		// TODO Auto-generated constructor stub
 	}
 	void setSubjectGrades()	{
-		System.out.println("\n\nEnter Grades of each subject: ");
-		System.out.println("\nSubCode\tSubName\tSem\tCredits\tGrade");
+		System.out.println("\n\nEnter Marks of each subject: ");
+		System.out.println("\nSubCode\tSubName\tSem\tCredits\tMarks");
 		for(Subject S: subjectList)	{
-			System.out.print(S.subjectCode + "\t" + S.subjectName + "\t" +S.semester + "\t" + S.subjectCredits + "\t");
-			try	{	
-				S.subjectGrade = inp.next().charAt(0);
-			}catch (NumberFormatException e)	{
-				System.out.println("Invalid Number Format");
+			while(true) {
+				System.out.print(S.subjectCode + "\t" + S.subjectName + "\t" +S.semester + "\t" + S.subjectCredits + "\t");
+				try	{	
+					S.subjectMarks = Integer.parseInt(inp.next());
+					S.setGrade();
+					break;
+				}catch (NumberFormatException e)	{
+					System.out.println("Invalid Marks please enter again : " + e);
+				}
 			}
 		}
 	}

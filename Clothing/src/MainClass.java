@@ -37,7 +37,7 @@ public class MainClass {
 				break;
 			case 3:
 				//Creating party wear object
-				System.out.println("\n\nPart Wear:- ");
+				System.out.println("\n\nParty Wear:- ");
 				System.out.println("Enter Size & gender: ");
 				tempSize = inp.nextDouble();
 				tempGender = inp.next().charAt(0);

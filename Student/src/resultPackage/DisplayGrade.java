@@ -1,11 +1,18 @@
 package resultPackage;
 
+import studentPackage.Subject;
+
 public class DisplayGrade extends GradeCalculation{
 	
 	DisplayGrade()	{
 		super();
 		calculateSGPA();
 		calculateCGPA();
+	}
+	void showMarksCard()	{
+		System.out.println("\nSubCode\tSubName\tSem\tCredits\tGrade");
+		for(Subject S: subjectList)	
+				System.out.print(S.subjectCode + "\t" + S.subjectName + "\t" +S.semester + "\t" + S.subjectCredits + "\t" + S.subjectGrade);			
 	}
 	void showGrade()	{
 		System.out.println("\n\nSGPA of each semester:- ");
@@ -18,6 +25,7 @@ public class DisplayGrade extends GradeCalculation{
 	public static void main(String args[])
 	{
 		DisplayGrade student1 = new DisplayGrade();
+		student1.showGrade();
 		student1.showGrade();
 	}
 }
