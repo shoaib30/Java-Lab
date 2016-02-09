@@ -5,8 +5,8 @@ import java.util.Scanner;
 
 public class RegisterStudent implements Student{
 
-	String studentName;
-	String studentBranch;
+	protected String studentName;
+	protected String studentBranch;
 	public static Scanner inp = new Scanner(System.in);
 	protected ArrayList<Subject> subjectList = new ArrayList<Subject>();
 	protected ArrayList<Integer> totalCreditsRegistered = new ArrayList<Integer>();
