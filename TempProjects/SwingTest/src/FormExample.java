@@ -1,5 +1,6 @@
 import javax.swing.JButton;
 
+import java.awt.Container;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
@@ -42,10 +43,8 @@ public class FormExample extends JPanel{
 		pnlControls.add(btnAdd);
 		details.add(new JLabel("Name"));
 		details.add(new JLabel("USN"));
-		FlowLayout fl = new FlowLayout();
-		fl.addLayoutComponent("From", pnlControls);
-		fl.addLayoutComponent("Details", details);
-		setLayout(fl);
+		add(pnlControls);
+		add(details);
 		
 	}
 	void setActions()	{
