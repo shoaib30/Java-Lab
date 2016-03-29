@@ -16,7 +16,7 @@ public class MissedCall {
 		callDate = new Date();
 	}
 	public static boolean callsExceedten()	{
-		return (numberOfCalls > 10)?true:false;
+		return (numberOfCalls >= 10)?true:false;
 	}
 	void displayAllDetails()	{
 		System.out.println("Name of caller: " + nameOfCaller);

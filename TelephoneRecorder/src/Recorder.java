@@ -69,6 +69,7 @@ public class Recorder {
 	boolean deleteNumber(int index)	{
 		if(index >= 0){
 			missedCallList.remove(index);
+			MissedCall.numberOfCalls--;
 			return true;
 		}
 		return false;

@@ -81,6 +81,7 @@ public class CopyApp extends JPanel{
 					btnCopy.setText("Stopped");
 					btnCopy.setEnabled(false);
 					copying = false;
+					//fih.stopCopy = true;
 					t.stop();
 					try {
 						fih.displayCopied(textArea);

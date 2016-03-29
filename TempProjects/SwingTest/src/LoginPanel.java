@@ -42,7 +42,7 @@ public class LoginPanel extends JPanel{
 				if(ps.equals(password))	{
 					JOptionPane.showMessageDialog(null,"Successfully Logged in","Logged in",JOptionPane.INFORMATION_MESSAGE);
 				}else{
-					int res = JOptionPane.showConfirmDialog(null,"Wrong Password, Re-enter?","Error",JOptionPane.YES_NO_CANCEL_OPTION,r u);
+					int res = JOptionPane.showConfirmDialog(null,"Wrong Password, Re-enter?","Error",JOptionPane.YES_NO_CANCEL_OPTION);
 					if(res == 0)	{
 						tfUser.setText("");
 						tfUser.grabFocus();

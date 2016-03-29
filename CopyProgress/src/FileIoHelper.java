@@ -13,6 +13,7 @@ public class FileIoHelper {
 		private File inputFile;
 		private File outputFile;
 		private JProgressBar progressBar;
+		public boolean stopCopy = false;
 	public FileIoHelper(String input, String output, JProgressBar progressBar) {
 		inputFile = new File(input);
 		outputFile = new File(output);
@@ -35,6 +36,8 @@ public class FileIoHelper {
 			int c;
 			int bytesRead = 0;
 			while ((c = in.read()) != -1) {
+//				if(stopCopy)
+//					break;
 				System.out.print((char)c);
 				out.write(c);
 				bytesRead += 1;
@@ -58,6 +61,7 @@ public class FileIoHelper {
 	}
 	void displayCopied(JTextArea jta) throws FileNotFoundException	{
 		Scanner fileScanner = new Scanner(new FileReader(outputFile));
+		System.out.println("in");
 		while(fileScanner.hasNext()){
 			jta.append(fileScanner.next() + " ");
 		}
