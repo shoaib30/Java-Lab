@@ -41,6 +41,7 @@ public class JdbcHelper {
 		   pstmt.setInt(5, repNo);
 		   int row = pstmt.executeUpdate();
 		   System.out.println("Rows Affected: " + row);
+		   pstmt.close();
 	   }
 	   void insertRep(int repNo, String name, String state, double commission, double rate) throws SQLException	{
 		   String query = "INSERT into Rep VALUES (?,?,?,?,?)";
@@ -52,6 +53,7 @@ public class JdbcHelper {
 		   pstmt.setFloat(5, (float) rate);
 		   int row = pstmt.executeUpdate();
 		   System.out.println("Rows Affected: " + row);
+		   pstmt.close();
 	   }
 	   void getReps(DefaultTableModel model) throws SQLException	{
 		   String query = "SELECT * FROM Rep";
@@ -62,6 +64,7 @@ public class JdbcHelper {
 			   String repName = res.getString(2);
 			   model.addRow(new Object []{repNo,repName});
 		   }
+		   stmt.close();
 	   }
 	   protected void finalize()	{
 		   try {

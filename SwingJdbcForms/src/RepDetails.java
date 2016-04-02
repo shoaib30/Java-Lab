@@ -12,15 +12,21 @@ import javax.swing.table.DefaultTableModel;
 public class RepDetails extends JPanel{
 	JdbcHelper db;
 	JButton btnBack;
-	JTable tbl;
 	RepDetails()	{
 		btnBack = new JButton("Back");
 		db = new JdbcHelper();
+		btnBack.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				MainFrame.setDefaultFrame();
+			}
+		});
+	}
+	void setDetails(){
+		this.removeAll();
 		DefaultTableModel model = new DefaultTableModel();
-		tbl = new JTable(model);
-		
-//		model.addColumn("number");
-//		model.addColumn("test");
+		JTable tbl = new JTable(model);
 		String header[] = new String[]{"RepNumber","RepName"} ;
 		model.setColumnIdentifiers(header);
 		try {
@@ -30,18 +36,7 @@ public class RepDetails extends JPanel{
 			e.printStackTrace();
 		}
 		tbl.setPreferredScrollableViewportSize(tbl.getPreferredSize());
-
 		add(new JScrollPane(tbl));
 		add(btnBack);
-		btnBack.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
-				MainFrame.setDefaultFrame();
-			}
-			
-		});
-		
 	}
 }

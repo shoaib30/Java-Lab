@@ -66,6 +66,7 @@ public class MainFrame extends JFrame{
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
 				ct.removeAll();
+				rd.setDetails();
 				ct.add(rd);
 				ct.revalidate();
 				ct.repaint();
