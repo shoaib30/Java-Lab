@@ -8,10 +8,19 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 public class RepresentativeForm extends JPanel{
-	JTextField txtRepNo, txtRepName, txtRepState, txtComm, txtRepRate;
-	JLabel lblRepNo, lblRepName, lblRepState, lblComm, lblRepRate;
-	JButton btnSubmit,btnBack;
-	JdbcHelper db;
+	private JTextField txtRepNo;
+	private JTextField txtRepName;
+	private JTextField txtRepState;
+	private JTextField txtComm;
+	private JTextField txtRepRate;
+	private JLabel lblRepNo;
+	private JLabel lblRepName;
+	private JLabel lblRepState;
+	private JLabel lblComm;
+	private JLabel lblRepRate;
+	private JButton btnSubmit;
+	private JButton btnBack;
+	private JdbcHelper db;
 	RepresentativeForm()	{
 		db = new JdbcHelper();
 		setupLayout();

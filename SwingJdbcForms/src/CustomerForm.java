@@ -8,9 +8,18 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 public class CustomerForm extends JPanel{
-	JTextField txtCustId, txtCustName, txtCustState, txtCreditLimit, txtCustRepNo;
-	JLabel lblCustId, lblCustName, lblCustState, lblCreditLimit, lblCustRepNo;
-	JButton btnSubmit,btnBack;
+	private JTextField txtCustId;
+	private JTextField txtCustName;
+	private JTextField txtCustState;
+	private JTextField txtCreditLimit;
+	private JTextField txtCustRepNo;
+	private JLabel lblCustId;
+	private JLabel lblCustName;
+	private JLabel lblCustState;
+	private JLabel lblCreditLimit;
+	private JLabel lblCustRepNo;
+	private JButton btnSubmit;
+	private JButton btnBack;
 	JdbcHelper db;
 	CustomerForm()	{
 		db = new JdbcHelper();
@@ -38,35 +47,32 @@ public class CustomerForm extends JPanel{
 		add(btnSubmit);add(btnBack);
 	}
 	void setActions()	{
-		btnSubmit.addActionListener(new ActionListener()	{
-
+		btnSubmit.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
+/* TODO Auto-generated method stub */
 				System.out.println("Submitted");
 				int id = Integer.parseInt(txtCustId.getText());
-				String name = txtCustName.getText();
+				String name1 = txtCustName.getText();
 				String state = txtCustState.getText();
 				double creditLimit = Double.parseDouble(txtCreditLimit.getText());
 				int repNo = Integer.parseInt(txtCustRepNo.getText());
 				try {
-					db.insertCustomer(id, name, state, creditLimit, repNo);
+					db.insertCustomer(id, name1, state, creditLimit, repNo);
 				} catch (SQLException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
-				} finally{
+				} finally {
 					MainFrame.setDefaultFrame();
 				}
 			}
 		});
 		btnBack.addActionListener(new ActionListener() {
-
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
 				MainFrame.setDefaultFrame();
 			}
-			
 		});
 	}
 }

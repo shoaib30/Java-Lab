@@ -8,10 +8,10 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 public class MainFrame extends JFrame{
-	static CustomerForm cf;
-	static RepresentativeForm rf;
-	static RepDetails rd;
-	static Container ct;
+	private static CustomerForm cf;
+	private static RepresentativeForm rf;
+	private static RepDetails rd;
+    private static Container ct;
 	MainFrame(String s)	{
 		super(s);
 		cf = new CustomerForm();

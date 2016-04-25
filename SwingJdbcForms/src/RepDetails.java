@@ -11,7 +11,7 @@ import javax.swing.table.DefaultTableModel;
 
 public class RepDetails extends JPanel{
 	JdbcHelper db;
-	JButton btnBack;
+	private JButton btnBack;
 	RepDetails()	{
 		btnBack = new JButton("Back");
 		db = new JdbcHelper();
