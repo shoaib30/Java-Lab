@@ -1,16 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <jsp:useBean id="Auth" class="helper.Authenticator"></jsp:useBean>
+    <%@page import="java.util.*" %>
     <%
-    	String user = request.getParameter("username");
-    	String pass = request.getParameter("password");
-    	Auth.setUser(user);   
-    	Auth.setPass(pass);
-    	if(!Auth.getAuth()){
-    		out.println("Invalid Credentials");
-    	}
-    	else{
-    	
+    	String user = (String)session.getAttribute("user");
+    	if(user == null)
+    		response.sendRedirect("index.jsp");
+    	Date date = new Date();
     %>
 <!DOCTYPE html>
 <html lang="en">
@@ -25,7 +20,7 @@
 	<!--  -->
 
 	<style>
-
+	body{padding-bottom:50px}
 	</style>
 
 </head>
@@ -33,9 +28,16 @@
 <body>
 
 	<div class="container">
+		
+        <div class="jumbotron">
+	<div class="container text-center">
+		<h2> Welcome <%=user %></h2>
+		<h3>Date: <%=date.toString() %></h3>
+	</div>
+	</div>
         <div class="jumbotron">
 	<div class="container">
-		<form class="form-horizontal">
+		<form class="form-horizontal" action="CalculateTax.jsp">
             <fieldset>
 
             <!-- Form Name -->
@@ -82,13 +84,51 @@
                 </select>
               </div>
             </div>
-
+             <!-- Number input-->
+                    <div class="form-group">
+                      <label class="col-md-4 control-label" for="salary">Salary</label>  
+                      <div class="col-md-4">
+                      <input id="salary" name="salary" type="number" placeholder="Salary" class="form-control input-md" required="">                      
+                      </div>
+                    </div>
+			   <!-- Button -->
+                    <div class="form-group">
+                      <label class="col-md-4 control-label" for="submit"></label>
+                      <div class="col-md-4">
+                            <button id="submit" name="submit" class="btn btn-primary">Calculate Tax</button>
+                        </div>
+                    </div>
             </fieldset>
         </form>
 
 	</div>
 </div>
-
+<%
+	if(session.getAttribute("name") != null)	{
+		String name = (String)session.getAttribute("name");
+		String gender = (String)session.getAttribute("gender");
+		String org = (String)session.getAttribute("org");
+		double salary = (Double)session.getAttribute("salary");
+		double incomeTax = (Double)session.getAttribute("it");
+		double percent = (Double)session.getAttribute("percent");
+		
+	
+%>
+	<div class="jumbotron">
+	<div class="container text-center">
+		<h2> Income Tax</h2>
+		<p>
+			Name: <%=name %><br/>
+			Gender: <%=gender %><br/>
+			Organization: <%=org %><br/>
+			Salary: <%=salary %><br/>
+			Income Tax: <%=incomeTax %><br/>
+			Percentage: <%=percent %>%<br/>
+		</p>
+	</div>
+	</div>
+	<%} %>
+	<a class="btn btn-danger btn-lg" href="index.jsp?status=2">Logout</a>
 	</div>
 
 	<script src="js/jquery.min.js"></script>
@@ -100,6 +140,3 @@
 </body>
 
 </html>
-<% 
-}
-%>
