@@ -29,7 +29,7 @@ public class MainClass {
 			case 4:
 				return;
 			default:
-					System.out.println("Wrong chocie");
+					System.out.println("Wrong choice");
 			}
 		}
 	}
