@@ -56,7 +56,8 @@ public class JdbcHelper {
 		   pstmt.close();
 	   }
 	   void getReps(DefaultTableModel model) throws SQLException	{
-		   String query = "SELECT * FROM Rep";
+		   //String query = "SELECT * FROM Rep";
+		   String query =  "SELECT  `RepNo` ,  `RepName` FROM  `Rep` , Cust WHERE Cust.CustRepNo = Rep.`RepNo`  AND Cust.CustCredLimit >6000 GROUP BY  `RepNo`"; 
 		   Statement stmt = conn.createStatement();
 		   ResultSet res = stmt.executeQuery(query);
 		   while(res.next()){
