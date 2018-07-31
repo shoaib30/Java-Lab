@@ -1,0 +1,40 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Income Tax</title>
+</head>
+<body>
+<%
+	String name = request.getParameter("name");
+	String gender = request.getParameter("gender");
+	String org = request.getParameter("org");
+	String salary = request.getParameter("salary");
+	double incometax = (20.0/100) * (Double.parseDouble(salary));
+	%>
+	<table>
+		<tr>
+			<td>name</td>
+			<td><%=name %></td>
+		</tr>
+		<tr>
+			<td>gender</td>
+			<td><%=gender %></td>
+		</tr>
+		<tr>
+			<td>org</td>
+			<td><%=org %></td>
+		</tr>
+		<tr>
+			<td>Salary</td>
+			<td><%=salary %></td>
+			</tr>
+		<tr>
+			<td>Income Tax</td>
+			<td><%=incometax %></td>
+		</tr>
+	</table>
+</body>
+</html>

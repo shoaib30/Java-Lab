@@ -1,0 +1,64 @@
+import java.awt.Container;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+
+public class MainFrame extends JFrame{
+	static CustomerForm cf;
+	static RepresentativeForm rf;
+	static Container ct;
+	MainFrame(String s)	{
+		super(s);
+		cf = new CustomerForm();
+		rf = new RepresentativeForm();
+		ct = getContentPane();
+		setDefaultFrame();
+		setSize(200,400);
+		setVisible(true);
+		
+	}
+	static void setDefaultFrame()	{
+		ct.removeAll();
+		JButton btn1 = new JButton("Insert Customer");
+		JButton btn2 = new JButton("Insert Representative");
+		JPanel mainPanel = new JPanel();
+		mainPanel.add(btn1);
+		mainPanel.add(btn2);
+		ct.add(mainPanel);
+		ct.revalidate();
+		ct.repaint();
+		btn1.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				ct.removeAll();
+				ct.add(cf);
+				ct.revalidate();
+				ct.repaint();
+			}
+			
+		});
+		btn2.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				ct.removeAll();
+				ct.add(rf);
+				ct.revalidate();
+				ct.repaint();
+			}
+			
+		});
+	}
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		MainFrame mf = new MainFrame("Forms");
+		
+	}
+
+}

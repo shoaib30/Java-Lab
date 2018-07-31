@@ -1,0 +1,47 @@
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.sql.SQLException;
+
+import javax.swing.JButton;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.JTextArea;
+import javax.swing.table.DefaultTableModel;
+
+public class RepDetails extends JPanel{
+	JdbcHelper db;
+	JButton btnBack;
+	JTable tbl;
+	RepDetails()	{
+		btnBack = new JButton("Back");
+		db = new JdbcHelper();
+		DefaultTableModel model = new DefaultTableModel();
+		tbl = new JTable(model);
+		
+//		model.addColumn("number");
+//		model.addColumn("test");
+		String header[] = new String[]{"RepNumber","RepName"} ;
+		model.setColumnIdentifiers(header);
+		try {
+			db.getReps(model);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		tbl.setPreferredScrollableViewportSize(tbl.getPreferredSize());
+
+		add(new JScrollPane(tbl));
+		add(btnBack);
+		btnBack.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				MainFrame.setDefaultFrame();
+			}
+			
+		});
+		
+	}
+}

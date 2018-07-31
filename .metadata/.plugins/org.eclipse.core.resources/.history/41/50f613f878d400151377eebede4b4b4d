@@ -1,0 +1,27 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Recorder {
+	ArrayList<MissedCall> missedCallList;
+	static Scanner inp = new Scanner(System.in);
+	Recorder()	{
+		missedCallList = new ArrayList<MissedCall>();
+	}
+	void recordMissedCall()	{
+		System.out.println("Enter Caller Details: ");
+		System.out.print("Origin Number: ");
+		int telephoneNumber = inp.nextInt();
+		System.out.print("Caller name available? (Y/N): ");
+		switch(inp.next().charAt(0))	{
+		case 'y':
+		case 'Y':
+			System.out.print("Enter name of caller: ");
+			String nameOfCaller = inp.next();
+			missedCallList.add(new MissedCall(telephoneNumber,nameOfCaller));
+			break;
+		case 'n':
+		case 'N':
+			
+		}
+	}
+}

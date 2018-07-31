@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move element &apos;Authenticator.java&apos; to &apos;IncomeTax/src/helper&apos;&#x0A;- Original project: &apos;IncomeTax&apos;&#x0A;- Destination element: &apos;IncomeTax/src/helper&apos;&#x0A;- Original element: &apos;Authenticator.java&apos;&#x0A;- Update references to refactored element" description="Move compilation unit" destination="/src&lt;helper" element1="/src&lt;{Authenticator.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.move" log="/src&lt;&#x09;/src&lt;helper" policy="org.eclipse.jdt.ui.moveResources" qualified="false" references="true" stamp="1461653140111" units="1" version="1.0"/>
+</session>

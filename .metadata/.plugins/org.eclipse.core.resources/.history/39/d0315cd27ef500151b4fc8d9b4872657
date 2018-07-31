@@ -1,0 +1,19 @@
+import java.sql.SQLException;
+
+import javax.swing.JPanel;
+import javax.swing.JTextArea;
+
+public class RepDetails extends JPanel{
+	JTextArea ta;
+	JdbcHelper db;
+	RepDetails()	{
+		ta = new JTextArea("");
+		try {
+			db.getReps(ta);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		add(ta);
+	}
+}

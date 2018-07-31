@@ -1,0 +1,21 @@
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+
+public class MainFrame extends JFrame{
+
+	MainFrame(String s)	{
+		super(s);
+		CustomerForm cf = new CustomerForm();
+		setContentPane(cf);
+		setSize(200,400);
+		pack();
+		setVisible(true);
+		add(cf);
+	}
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		MainFrame mf = new MainFrame("Forms");
+		
+	}
+
+}

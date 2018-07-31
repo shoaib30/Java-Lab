@@ -44,6 +44,7 @@ public class Recorder {
 				switch(inp.nextInt())	{
 				case 1:
 					missedCallList.remove(i);
+					MissedCall.numberOfCalls--;
 					System.out.println("Deleted");
 					break innerLoop;
 				case 2:

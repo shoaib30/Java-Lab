@@ -1,0 +1,74 @@
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.sql.SQLException;
+
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+public class RepresentativeForm extends JPanel{
+	JTextField txtRepNo, txtRepName, txtRepState, txtComm, txtRepRate;
+	JLabel lblRepNo, lblRepName, lblRepState, lblComm, lblRepRate;
+	JButton btnSubmit,btnBack;
+	JdbcHelper db;
+	MainFrame mf;
+	RepresentativeForm(JdbcHelper db, MainFrame mf)	{
+		this.db = db; 
+		this.mf = mf;
+		setupLayout();
+		setActions();
+	}
+	void setupLayout()	{
+		lblRepNo = new JLabel("Representative No: ");
+		lblRepName = new JLabel("Representative Name: ");
+		lblRepState = new JLabel("Representative State: ");
+		lblComm = new JLabel("Commission: ");
+		lblRepRate = new JLabel("Representative Rate: ");
+		txtRepNo = new JTextField(10);
+		txtRepName = new JTextField(10);
+		txtRepState = new JTextField(10);
+		txtComm = new JTextField(10);
+		txtRepRate = new JTextField(10);
+		btnSubmit = new JButton("Submit");
+		btnBack = new JButton("Back");
+		add(lblRepNo);add(txtRepNo);
+		add(lblRepName);add(txtRepName);
+		add(lblRepState);add(txtRepState);
+		add(lblComm);add(txtComm);
+		add(lblRepRate);add(txtRepRate);
+		add(btnSubmit);add(btnBack);
+	}
+	void setActions()	{
+		btnSubmit.addActionListener(new ActionListener()	{
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				System.out.println("Submitted");
+				int repNo = Integer.parseInt(txtRepNo.getText());
+				String name = txtRepName.getText();
+				String state = txtRepState.getText();
+				double comm = Double.parseDouble(txtComm.getText());
+				Double rate = Double.parseDouble(txtRepRate.getText());
+				try {
+					db.insertRep(repNo, name, state, comm, rate);
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				} finally{
+					MainFrame.setDefaultFrame();
+				}
+			}
+		});
+		btnBack.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				MainFrame.setDefaultFrame();
+			}
+			
+		});
+	}
+}

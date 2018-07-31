@@ -1,0 +1,18 @@
+import java.util.Date;
+
+public class MissedCall {
+	int telephoneNumeber;
+	Date callDate;
+	String nameOfCaller;
+	public static int numberOfCalls = 0;
+	MissedCall(int telephoneNumber, String nameOfCaller)	{
+		this.telephoneNumeber = telephoneNumber;
+		this.nameOfCaller = nameOfCaller;
+		callDate = new Date();
+	}
+	MissedCall(int telephoneNumber)	{
+		this.telephoneNumeber = telephoneNumber;
+		this.nameOfCaller = "Private caller";
+		callDate = new Date();
+	}
+}

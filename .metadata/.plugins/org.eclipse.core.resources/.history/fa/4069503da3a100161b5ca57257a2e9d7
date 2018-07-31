@@ -1,0 +1,13 @@
+
+public class Game {
+	ArraayList<int> userSolution;
+	Game()	{
+		System.out.println("Initiating new game");
+		Computer c = new Computer();
+		System.out.println("Game started");
+		
+	}
+	void takeInput()	{
+		
+	}
+}

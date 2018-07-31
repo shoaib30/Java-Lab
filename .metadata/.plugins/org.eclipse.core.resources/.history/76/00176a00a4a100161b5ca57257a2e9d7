@@ -1,0 +1,24 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Game {
+	ArrayList<Integer> userSolution;
+	Computer c;
+	static Scanner sc = new Scanner(System.in) ;
+	Game()	{
+		System.out.println("Initiating new game");
+		c = new Computer();
+		System.out.println("Game started");
+		
+	}
+	void takeInput()	{
+		String inp  = sc.nextLine();
+		userSolution = c.getUserSolution(inp);
+	}
+	void printWhiteBlack(){
+		int whites = c.numberOfWhite(userSolution);
+		int blacks = c.numberOfBlack(userSolution);
+		System.out.println(whites +"W  " + blacks + "B");
+		
+	}
+}
