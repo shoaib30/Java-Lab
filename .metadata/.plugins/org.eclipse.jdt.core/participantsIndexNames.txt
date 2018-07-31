@@ -1,3 +1,0 @@
-INDEX VERSION 1.129
-/home/hacker101/Programming/Java-Lab/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/4242620561.index
-/farm/src

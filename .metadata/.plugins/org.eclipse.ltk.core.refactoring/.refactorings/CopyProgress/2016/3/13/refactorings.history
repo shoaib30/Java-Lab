@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Rename field &apos;isCopying&apos; in &apos;CopyApp&apos; to &apos;copying&apos;&#x0A;- Original project: &apos;CopyProgress&apos;&#x0A;- Original element: &apos;CopyApp.isCopying&apos;&#x0A;- Renamed element: &apos;CopyApp.copying&apos;&#x0A;- Update references to refactored element&#x0A;- Update textual occurrences in comments and strings" delegate="false" deprecate="false" description="Rename field &apos;isCopying&apos;" flags="589830" getter="false" id="org.eclipse.jdt.ui.rename.field" input="/src&lt;{CopyApp.java[CopyApp^isCopying" name="copying" references="true" setter="false" stamp="1458462138002" textual="false" version="1.0"/>
-</session>
